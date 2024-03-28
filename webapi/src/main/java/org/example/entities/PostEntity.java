@@ -3,7 +3,7 @@ package org.example.entities;
 import jakarta.persistence.*;
 import lombok.Data;
 
-import java.util.Date;
+import java.time.LocalDateTime;
 
 @Data
 @Entity
@@ -23,5 +23,5 @@ public class PostEntity {
     private String imageUrl;
 
     @Temporal(TemporalType.TIMESTAMP)
-    private Date datePosted;
+    private LocalDateTime datePosted;
 }
