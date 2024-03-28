@@ -2,6 +2,7 @@ package org.example.mapper;
 
 import org.example.dto.PostCreateDTO;
 import org.example.dto.PostItemDTO;
+import org.example.dto.PostEditDTO;
 import org.example.entities.PostEntity;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
@@ -12,8 +13,11 @@ import java.util.List;
 public interface PostMapper {
     @Mapping(source = "datePosted", target = "dateCreated", dateFormat = "dd.MM.yyyy HH:mm:ss")
     PostItemDTO PostItemDTO(PostEntity Post);
-    List<PostItemDTO> categoriesListItemDTO(List<PostEntity> list);
+    List<PostItemDTO> postsListItemDTO(List<PostEntity> list);
 
     @Mapping(target = "imageUrl", ignore = true)
     PostEntity PostEntityByPostCreateDTO(PostCreateDTO Post);
+
+    @Mapping(target = "imageUrl", ignore = true)
+    PostEntity PostEditDto(PostEditDTO dto);
 }
